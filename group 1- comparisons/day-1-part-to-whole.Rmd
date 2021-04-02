@@ -115,7 +115,7 @@ mygraph_fw <- graph_from_data_frame(hierarchy_fw, vertices=vertices_fw)
 
 ```{r, message=FALSE}
 plot(mygraph_fw, vertex.label="", edge.arrow.size=0, vertex.size=2) +
-  ggsave("day-1-part-to-whole_files/network1.png")
+  ggsave("day-1-part-to-whole_files/firstnetwork.png")
 
 ggraph(mygraph_fw, layout = 'dendrogram', circular = TRUE) + 
   geom_edge_diagonal() +
