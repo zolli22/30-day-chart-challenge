@@ -33,7 +33,8 @@ ggplot(crypto_month, aes(x=monthyear, y=avg_high))+
   geom_text(aes(label=label, size=avg_volume), family='EmojiOne', color='forestgreen')+
   theme_bw()+
   labs(x='date', y='average high price', title='bitcoin through the ages (2017 - 2021)', subtitle='average high bitcoin price per month', caption='size of point is mapped to average trade volume')+
-  guides(size="none")
+  guides(size="none")+
+  ggsave("day-3-historical_files/bitcoin.png")
 ```
 
 ![](day-3-historical_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
@@ -57,7 +58,8 @@ ggplot(avocado_time, aes(x=Date, y=money_spent))+
   theme_bw()+
   labs(y="average money spent on avocados\n(millions $)", 
        title="how much money are people spending on avocados?", x="date")+
-  scale_y_continuous(labels = label_number(suffix = " M", scale = 1e-6))
+  scale_y_continuous(labels = label_number(suffix = " M", scale = 1e-6))+
+  ggsave("day-3-historical_files/avo.png")
 ```
 
 ![](day-3-historical_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
