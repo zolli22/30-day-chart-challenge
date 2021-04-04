@@ -1,28 +1,18 @@
----
-title: "Day 2: Pictogram"
-output: github_document
----
+Day 2: Pictogram
+================
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+I had a difficult time figuring out how to add icons/emojis to my
+charts, so once I was able to figure it out, I was happy with that. It’s
+nothing fancy, but I am proud of it!
 
-
-I had a difficult time figuring out how to add icons/emojis to my charts, so once I was able to figure it out, I was happy with that. It's nothing fancy, but I am proud of it! 
-
-```{r libraries, message=FALSE}
+``` r
 library(tidyverse)
 library(showtext)
 library(ggpomological)
 library(emojifont)
 ```
 
-
-```{r, include=FALSE}
-scales::show_col(ggpomological:::pomological_palette)
-```
-
-```{r, message=FALSE, warning=FALSE}
+``` r
 fruit <- c("tangerine", "apple", "peach", "cherry", "lemon")
 label <- c(emoji('tangerine'), emoji('apple'), emoji('peach'), emoji('cherries'), emoji('lemon'))
 
@@ -40,3 +30,4 @@ ggplot(df, aes(x=fruit, y=row))+
   ggsave("day-2-pictogram_files/fruit.png")
 ```
 
+![](day-2-pictogram_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
