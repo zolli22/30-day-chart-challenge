@@ -1,0 +1,48 @@
+;"State";"January1_colonies";"Maximum_colonies";"Lost_colonies";"Percent_lost";"Added_colonies";"Renovated_colonies";"Percent_renovated"
+Alabama;Alabama;7500.0;7500.0;820.0;11.0;1200.0;1500.0;20.0
+Arizona;Arizona;25000;26000;6000;23;810;230;1
+Arkansas;Arkansas;22000;22000;7500;34;540;810;4
+California;California;1150000;1540000;215000;14;205000;133000;9
+Colorado;Colorado;13000;21000;4900;23;1400;190;1
+Connecticut;Connecticut;2900;2900;140;5;220;330;11
+Florida;Florida;245000;255000;39000;15;57000;38000;15
+Georgia;Georgia;134000;139000;25000;18;29000;39000;28
+Hawaii;Hawaii;17000;17000;1600;9;1200;5000;29
+Idaho;Idaho;164000;168000;22000;13;2500;2600;2
+Illinois;Illinois;10500;10500;2400;23;1000;630;6
+Indiana;Indiana;7000;8000;1000;13;300;30;0.25
+Iowa;Iowa;41000;44000;2100;5;270;110;0.25
+Kansas;Kansas;3700;3700;950;26;370;410;11
+Kentucky;Kentucky;5500;5500;1200;22;760;20;0.25
+Louisiana;Louisiana;50000;52000;3600;7;4100;320;1
+Maine;Maine;1900;1900;410;22;20;30;2
+Maryland;Maryland;8000;8000;1600;20;400;190;2
+Massachusetts;Massachusetts;3700;3700;1000;27;240;290;8
+Michigan;Michigan;16500;37000;7000;19;4000;3900;11
+Minnesota;Minnesota;39000;62000;3900;6;8000;2900;5
+Mississippi;Mississippi;19000;32000;2000;6;28000;5500;17
+Missouri;Missouri;8000;8000;1400;18;1400;50;0.25
+Montana;Montana;35000;60000;140;0.25;840;0;0
+Nebraska;Nebraska;6500;14000;430;3;0;0;0
+NewJersey;New Jersey;6500;6500;730;11;180;190;3
+NewMexico;New Mexico;7500;7500;3900;52;180;0;0
+NewYork;New York;26000;26000;3700;14;400;170;1
+NorthCarolina;North Carolina;18500;18500;4200;23;2400;260;1
+NorthDakota;North Dakota;66000;101000;3200;3;2600;10;0.25
+Ohio;Ohio;12000;14000;4500;32;300;580;4
+Oklahoma;Oklahoma;17000;18000;3700;21;890;240;1
+Oregon;Oregon;81000;89000;4800;5;16500;3900;4
+Pennsylvania;Pennsylvania;14500;15000;3300;22;1200;670;4
+SouthCarolina;South Carolina;13500;14500;1800;12;1900;2800;19
+SouthDakota;South Dakota;23000;29000;390;1;250;90;0.25
+Tennessee;Tennessee;10000;10000;3400;34;540;470;5
+Texas;Texas;205000;290000;32000;11;124000;42000;14
+Utah;Utah;7500;17000;620;4;490;50;0.25
+Vermont;Vermont;5500;5500;810;15;20;0;0
+Virginia;Virginia;7000;7000;2100;30;540;160;2
+Washington;Washington;44000;90000;4600;5;7000;870;1
+WestVirginia;West Virginia;4700;8500;2500;29;330;60;1
+Wisconsin;Wisconsin;21000;29000;4600;16;2800;1600;6
+Wyoming;Wyoming;5500;9000;220;2;70;0;0
+OtherStates;Other States;3820;7020;1870;27;160;40;1
+UnitedStates;United States;2635220;;438030;17;511320;289200;11
