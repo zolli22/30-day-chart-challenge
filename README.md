@@ -1,5 +1,6 @@
 # 30 day chart challenge 2021  
 my repository for the [30 day chart challenge](https://github.com/Z3tt/30DayChartChallenge_Collection2021)!  
+![image](https://github.com/Z3tt/30DayChartChallenge_Collection2021/blob/main/img/topics_ol_blank.png)
 
 # Group 1: Comparisons  
 
