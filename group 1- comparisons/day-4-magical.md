@@ -50,7 +50,7 @@ layout(matrix(c(1, 2), nrow=2), heights=c(1.3, 7))
 par(mar=rep(0, 4))
 plot.new()
 text(x=0.5, y=0.5, "Andersen's Fairy Tales\nSentiment Wordcloud\n(green = positive, pink = negative)", family="eb-garamond")
-nrc_hans_all %>%
+wordcloud1 <- nrc_hans_all %>%
   slice(1:100) %>%
   with(wordcloud(word, n, colors = color, min.freq = 5, ordered.colors=TRUE,
                  random.order = FALSE, scale = c(4, .5), fixed.asp = FALSE, 
@@ -60,15 +60,17 @@ nrc_hans_all %>%
 ![](day-4-magical_files/figure-gfm/wordcloud%201-1.png)<!-- -->
 
 ``` r
-ggsave("day-4-magical_files/hans_wordcloud.png")
+wordcloud1
 ```
+
+    ## NULL
 
 ``` r
 layout(matrix(c(1, 2), nrow=2), heights=c(1.3, 7))
 par(mar=rep(0, 4))
 plot.new()
 text(x=0.5, y=0.5, "Grimm's Fairy Tales\nSentiment Wordcloud\n(green = positive, pink = negative)", family="eb-garamond")
-nrc_grimm_all %>%
+wordcloud2 <- nrc_grimm_all %>%
   slice(1:100) %>%
   with(wordcloud(word, n, colors = color, min.freq = 10, ordered.colors=TRUE,
                  random.order = FALSE, scale = c(3.5, .5), fixed.asp = FALSE, 
@@ -78,8 +80,10 @@ nrc_grimm_all %>%
 ![](day-4-magical_files/figure-gfm/wordcloud%202-1.png)<!-- -->
 
 ``` r
-ggsave("day-4-magical_files/grimm_wordcloud.png")
+wordcloud2
 ```
+
+    ## NULL
 
 ``` r
 nrc_hans2 <- andersen %>%
@@ -103,7 +107,7 @@ books <- nrc_grimm2 %>%
 ```
 
 ``` r
-ggplot(books, aes(y = prop, x  = sentiment, fill = book)) +
+sentiment <- ggplot(books, aes(y = prop, x  = sentiment, fill = book)) +
   geom_col(position = "dodge")+
   scale_fill_manual(values=c("#72aaa1","#e5b9ad"), name="anthology", labels=c("Anderson's Fairy Tales", "Grimm's Fairy Tales"))+
   coord_flip()+
@@ -111,6 +115,8 @@ ggplot(books, aes(y = prop, x  = sentiment, fill = book)) +
   labs(y="proportion of words")+
   theme(text=element_text(family="eb-garamond", face = "plain"))+
   ggsave("day-4-magical_files/sentiment.png")
+
+sentiment
 ```
 
 ![](day-4-magical_files/figure-gfm/sentiment%20chart-1.png)<!-- -->
