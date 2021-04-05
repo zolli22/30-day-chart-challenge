@@ -41,3 +41,4 @@ vignettes/*.pdf
 .DS_Store
 
 30-day-chart-challenge.Rproj
+lemonchart.R
