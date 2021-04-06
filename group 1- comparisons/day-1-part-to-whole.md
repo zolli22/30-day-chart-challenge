@@ -10,13 +10,13 @@ library(igraph)
 lego data from [kaggle](https://www.kaggle.com/rtatman/lego-database)
 
 ``` r
-sets <- read_csv("day-1-data/sets.csv")
-inventories <- read_csv("day-1-data/inventories.csv")
-inventory_parts <- read_csv("day-1-data/inventory_parts.csv")
-colors <- read_csv("day-1-data/colors.csv") %>%
+sets <- read_csv("group-1-data/sets.csv")
+inventories <- read_csv("group-1-data/inventories.csv")
+inventory_parts <- read_csv("group-1-data/inventory_parts.csv")
+colors <- read_csv("group-1-data/colors.csv") %>%
   rename("color_id" = "id", "color_name" = "name")
-parts <- read_csv("day-1-data/parts.csv")
-part_categories <- read_csv("day-1-data/part_categories.csv")%>%
+parts <- read_csv("group-1-data/parts.csv")
+part_categories <- read_csv("group-1-data/part_categories.csv")%>%
   rename("part_cat_id" = "id")
 ```
 
