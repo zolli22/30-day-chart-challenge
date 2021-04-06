@@ -1,20 +1,12 @@
----
-title: "Day 5: Slope"
-output: github_document
----
+Day 5: Slope
+================
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE)
-```
-
-
-```{r libraries}
+``` r
 library(tidyverse)
 ```
 
-
-```{r parabola, warning=FALSE, fig.asp=1, fig.align='center'}
-load("~/group 1- comparisons/group-1-data/parabola_points.rdata")
+``` r
+load("~/Desktop/R work/30-day-chart-challenge/group 1- comparisons/group-1-data/parabola_points.rdata")
 
 ggplot(data=parabola_points)+
   geom_point(aes(x=x1, y=y1), size=.01, alpha=.01)+
@@ -24,3 +16,5 @@ ggplot(data=parabola_points)+
   geom_hline(yintercept=c(0, 50, -50), alpha=.2, size=.2)+
   theme_void()
 ```
+
+<img src="5-slope_files/figure-gfm/parabola-1.png" style="display: block; margin: auto;" />

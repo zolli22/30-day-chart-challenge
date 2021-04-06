@@ -1,13 +1,7 @@
----
-title: "Day 4: Magical"
-output: github_document
----
+Day 4: Magical
+================
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
-```
-
-```{r libraries, message=FALSE}
+``` r
 library(tidyverse)
 library(gutenbergr)
 library(tidytext)
@@ -18,12 +12,12 @@ library(showtext)
 library(tm)
 ```
 
-```{r}
+``` r
 font_add_google("EB Garamond", "eb-garamond")
 showtext_auto()
 ```
 
-```{r, cache=TRUE}
+``` r
 andersen <- gutenberg_download(1597)  %>%
   unnest_tokens(output = word, input = text, token = "words") %>%
   group_by(word) %>%
@@ -37,8 +31,7 @@ grimms <- gutenberg_download(2591) %>%
   ungroup()
 ```
 
-
-```{r wordcloud wrangling}
+``` r
 nrc<-get_sentiments("nrc")
 
 nrc_hans_all <- andersen %>%
@@ -52,8 +45,7 @@ nrc_grimm_all <- grimms %>%
                            sentiment == "positive" ~ "#72aaa1"))
 ```
 
-
-```{r wordcloud 1}
+``` r
 layout(matrix(c(1, 2), nrow=2), heights=c(1.3, 7))
 par(mar=rep(0, 4))
 plot.new()
@@ -63,11 +55,17 @@ wordcloud1 <- nrc_hans_all %>%
   with(wordcloud(word, n, colors = color, min.freq = 5, ordered.colors=TRUE,
                  random.order = FALSE, scale = c(4, .5), fixed.asp = FALSE, 
                  rot.per=0, family="eb-garamond", main="Title"))
+```
+
+![](4-magical_files/figure-gfm/wordcloud%201-1.png)<!-- -->
+
+``` r
 wordcloud1
 ```
 
+    ## NULL
 
-```{r wordcloud 2}
+``` r
 layout(matrix(c(1, 2), nrow=2), heights=c(1.3, 7))
 par(mar=rep(0, 4))
 plot.new()
@@ -77,12 +75,17 @@ wordcloud2 <- nrc_grimm_all %>%
   with(wordcloud(word, n, colors = color, min.freq = 10, ordered.colors=TRUE,
                  random.order = FALSE, scale = c(3.5, .5), fixed.asp = FALSE, 
                  rot.per=0, family="eb-garamond"))
+```
 
+![](4-magical_files/figure-gfm/wordcloud%202-1.png)<!-- -->
+
+``` r
 wordcloud2
 ```
 
+    ## NULL
 
-```{r sentiment wrangling}
+``` r
 nrc_hans2 <- andersen %>%
   count(word, sort=TRUE) %>%
   inner_join(nrc, by = "word") %>%
@@ -103,8 +106,7 @@ books <- nrc_grimm2 %>%
   full_join(nrc_hans2)
 ```
 
-
-```{r sentiment chart}
+``` r
 sentiment <- ggplot(books, aes(y = prop, x  = sentiment, fill = book)) +
   geom_col(position = "dodge")+
   scale_fill_manual(values=c("#72aaa1","#e5b9ad"), name="anthology", labels=c("Anderson's Fairy Tales", "Grimm's Fairy Tales"))+
@@ -116,3 +118,4 @@ sentiment <- ggplot(books, aes(y = prop, x  = sentiment, fill = book)) +
 sentiment
 ```
 
+![](4-magical_files/figure-gfm/sentiment%20chart-1.png)<!-- -->
