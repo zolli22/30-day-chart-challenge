@@ -6,12 +6,12 @@ my repository for the [30 day chart challenge](https://github.com/Z3tt/30DayChar
 
 ## Day 1: Part-to-whole  
 
-<img width="700" src = "group 1- comparisons/images/dendo.png">
+<img width="900" src = "group 1- comparisons/images/dendo.png">
 
 
 ## Day 2: Pictogram  
 
-<img width="700" src = "group 1- comparisons/images/fruit.png">
+<img width="900" src = "group 1- comparisons/images/fruit.png">
 
 
 ## Day 3: Historical  
@@ -24,7 +24,7 @@ my repository for the [30 day chart challenge](https://github.com/Z3tt/30DayChar
 
 ## Day 4: Magical
 
-<img width="700" src = "group 1- comparisons/images/sentiment.png">
+<img width="900" src = "group 1- comparisons/images/sentiment.png">
 
 
 ## Day 5: Slope
@@ -48,7 +48,7 @@ my repository for the [30 day chart challenge](https://github.com/Z3tt/30DayChar
 
 ## Day 7: Physical
 
-<img width="700" src = "group2-distributions/images/7-tree-dist.png">
+<img width="900" src = "group2-distributions/images/7-tree-dist.png">
 
 
 ## Day 8: Animals
