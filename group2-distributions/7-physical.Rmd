@@ -1,0 +1,48 @@
+---
+title: "Day 7: Physical"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE)
+```
+
+```{r libraries}
+library(tidyverse)
+library(ggridges)
+library(paletteer)
+library(pdxTrees)
+library(pals)
+library(showtext)
+```
+
+```{r}
+font_add_google("Lora", "lora")
+showtext_auto(enable=TRUE)
+```
+
+```{r}
+park_trees <- get_pdxTrees_parks()
+
+trees <- count(park_trees, Common_Name) %>%
+  arrange(desc(n)) %>%
+  top_n(8) 
+mytrees <- trees$Common_Name
+
+common_trees <- park_trees %>%
+  filter(Common_Name %in% mytrees)
+
+count(common_trees, Common_Name)
+```
+
+
+```{r, dpi=400}
+ggplot(common_trees, aes(x=Tree_Height, y=Common_Name, fill=stat(x)))+
+  geom_density_ridges_gradient(scale=3)+
+  scale_fill_paletteer_c("pals::ocean.algae", name="tree height")+
+  labs(x="tree height", y="common name", title="how tall are the most common tree species in portland?")+
+  theme_minimal()+
+  theme(text=element_text(family="lora"))#+
+  #ggsave("images/7-tree-dist.png", width=12)
+```
+
