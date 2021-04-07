@@ -25,8 +25,16 @@ my repository for the [30 day chart challenge](https://github.com/Z3tt/30DayChar
 <img width="700" src = "group 1- comparisons/images/sentiment.png">
 
 
-
 ## Day 5: Slope
 
 <img width="700" src = "group 1- comparisons/images/parabola_points.png">
 <img width="700" src = "group 1- comparisons/images/wrongbutpretty.png">
+
+
+## Day 6: Slope
+
+<img width="700" src = "group 1- comparisons/images/contour_2.png">
+<img width="700" src = "group 1- comparisons/images/contour_3.png">
+
+
+# Group 2:
