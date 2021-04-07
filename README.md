@@ -38,3 +38,20 @@ my repository for the [30 day chart challenge](https://github.com/Z3tt/30DayChar
 
 
 # Group 2:
+
+## Day 7: Physical
+
+
+## Day 8: Animals
+
+
+## Day 9: Statistics
+
+
+## Day 10: Abstract
+
+
+## Day 11: Circular
+
+
+## Day 12: Strips
