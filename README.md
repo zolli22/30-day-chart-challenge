@@ -16,8 +16,10 @@ my repository for the [30 day chart challenge](https://github.com/Z3tt/30DayChar
 
 ## Day 3: Historical  
 
-<img width="700" src = "group 1- comparisons/images/avo.png">
-<img width="700" src = "group 1- comparisons/images/bitcoin.png">
+<p float="left">
+  <img src="group 1- comparisons/images/avo.png" width=450" />
+  <img src="group 1- comparisons/images/bitcoin.png" width="450" /> 
+</p>
 
 
 ## Day 4: Magical
@@ -27,19 +29,26 @@ my repository for the [30 day chart challenge](https://github.com/Z3tt/30DayChar
 
 ## Day 5: Slope
 
-<img width="700" src = "group 1- comparisons/images/parabola_points.png">
-<img width="700" src = "group 1- comparisons/images/wrongbutpretty.png">
+<p float="left">
+  <img src="group 1- comparisons/images/parabola_points.png" width=450" />
+  <img src="group 1- comparisons/images/wrongbutpretty.png" width="450" /> 
+</p>
 
 
 ## Day 6: Slope
 
-<img width="700" src = "group 1- comparisons/images/contour_2.png">
-<img width="700" src = "group 1- comparisons/images/contour_3.png">
+<p float="left">
+  <img src="group 1- comparisons/images/contour_2.png" width=450" />
+  <img src="group 1- comparisons/images/contour_3.png" width="450" /> 
+</p>
+
 
 
 # Group 2:
 
 ## Day 7: Physical
+
+<img width="700" src = "group2-distributions/images/7-tree-dist.png">
 
 
 ## Day 8: Animals
