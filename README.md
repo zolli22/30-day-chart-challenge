@@ -53,6 +53,8 @@ my repository for the [30 day chart challenge](https://github.com/Z3tt/30DayChar
 
 ## Day 8: Animals
 
+<img src="group2-distributions/images/8_bill_length.png" width="800" >
+                                                                  
 
 ## Day 9: Statistics
 
