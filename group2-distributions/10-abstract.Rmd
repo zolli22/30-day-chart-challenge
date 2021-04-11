@@ -4,27 +4,37 @@ output: github_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, message=FALSE)
 ```
 
-## GitHub Documents
 
-This is an R Markdown format used for publishing markdown documents to GitHub. When you click the **Knit** button all R code chunks are run and a markdown file (.md) suitable for publishing to GitHub is generated.
-
-## Including Code
-
-You can include R code in the document as follows:
-
-```{r cars}
-summary(cars)
+```{r libraries}
+library(tidyverse)
+library(generativeart)
 ```
 
-## Including Plots
+```{r}
+IMG_DIR <- "img/"
+IMG_SUBDIR <- "everything/"
+IMG_SUBDIR2 <- "handpicked/"
+IMG_PATH <- paste0(IMG_DIR, IMG_SUBDIR)
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+LOGFILE_DIR <- "logfile/"
+LOGFILE <- "logfile.csv"
+LOGFILE_PATH <- paste0(LOGFILE_DIR, LOGFILE)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+# create the directory structure
+generativeart::setup_directories(IMG_DIR, IMG_SUBDIR, IMG_SUBDIR2, LOGFILE_DIR)
+
+# include a specific formula, for example:
+my_formula <- list(
+  x = quote(runif(1, -1, 1) * x_i^2 - sin(y_i^2)),
+  y = quote(runif(1, -1, 1) * y_i^2 - cos(x_i^2))
+)
+
+# call the main function to create five images with a polar coordinate system
+generativeart::generate_img(formula = my_formula, nr_of_img = 5, polar = TRUE, filetype = "png", color = "#2a363b", background_color = "#99b898")
+```
+
