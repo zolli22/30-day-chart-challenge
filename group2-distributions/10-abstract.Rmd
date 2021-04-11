@@ -34,6 +34,7 @@ my_formula <- list(
   y = quote(runif(1, -1, 1) * y_i^2 - cos(x_i^2))
 )
 
+
 # call the main function to create five images with a polar coordinate system
 generativeart::generate_img(formula = my_formula, nr_of_img = 5, polar = TRUE, filetype = "png", color = "#2a363b", background_color = "#99b898")
 ```
