@@ -58,11 +58,23 @@ my repository for the [30 day chart challenge](https://github.com/Z3tt/30DayChar
 
 ## Day 9: Statistics
 
+<img src="group2-distributions/images/9-rnorm.png" width="800" >
+
 
 ## Day 10: Abstract
 
+<p float="left">
+  <img src="group2-distributions/img/handpicked/2021-04-11-13-39_seed_3512.png" width="400" />
+  <img src="group2-distributions/img/handpicked/2021-04-11-14-30_seed_2628.png" width="400" /> 
+</p>
+<p float="left">
+  <img src="group2-distributions/img/handpicked/2021-04-11-14-31_seed_9328.png" width="400" />
+  <img src="group2-distributions/img/handpicked/2021-04-11-13-42_seed_6133.png" width="400" /> 
+</p>                                                                 
 
 ## Day 11: Circular
 
+<img src="group2-distributions/images/11-wineregion.png" width="800" >
+<img src="group2-distributions/images/11-winevariety.png" width="800" >
 
 ## Day 12: Strips
