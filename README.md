@@ -75,6 +75,6 @@ my repository for the [30 day chart challenge](https://github.com/Z3tt/30DayChar
 ## Day 11: Circular
 
 <img src="group2-distributions/images/11-wineregion.png" width="800" >
-<img src="group2-distributions/images/11-winevariety.png" width="800" >
+
 
 ## Day 12: Strips
