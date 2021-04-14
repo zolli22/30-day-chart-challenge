@@ -1,0 +1,128 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+sets <- read_csv("lego_data/sets.csv")
+inventories <- read_csv("lego_data/inventories.csv")
+inventory_parts <- read_csv("lego_data/inventory_parts.csv")
+colors <- read_csv("lego_data/colors.csv") %>%
+  rename("color_id" = "id", "color_name" = "name")
+parts <- read_csv("lego_data/parts.csv")
+part_categories <- read_csv("lego_data/part_categories.csv")%>%
+  rename("part_cat_id" = "id")
+```
+
+
+```{r}
+ewok_village <- sets %>%
+  filter(name == "Ewok Village") %>%
+  left_join(inventories) %>%
+  rename("inventory_id" = "id")
+
+ewok_id <- ewok_village$inventory_id
+
+ewok_inventory <- inventory_parts %>%
+  filter(inventory_id == ewok_id) %>%
+  left_join(parts, by="part_num") %>%
+  left_join(part_categories, by="part_cat_id") %>%
+  rename("part_name"="name.x", "part_cat_name"="name.y") %>%
+  left_join(colors, by="color_id") %>%
+  mutate(origin = "origin") %>%
+  mutate(hex = paste0("#", rgb))
+  
+ewok_colors <- ewok_inventory %>%
+  group_by(inventory_id, hex) %>%
+  summarize(parts = sum(quantity))
+
+ewokcolors <- ewok_colors$hex
+  
+ggplot(ewok_colors, aes(x=inventory_id, y=parts))+
+  geom_col(position="fill", fill=ewokcolors)+
+  theme_void()+
+  coord_flip()+
+  labs(title=" Colors of the Ewok Village Lego Set")
+ggsave("images/12-ewok.png")
+```
+
+```{r, echo=FALSE}
+colors <- read_csv("lego_data/colors.csv") %>%
+  rename("color_id" = "id", "color_name" = "name")
+```
+
+
+```{r}
+millenium_falcon <- sets %>%
+  filter(name == "Millennium Falcon - UCS") %>%
+  left_join(inventories) %>%
+  rename("inventory_id" = "id")
+
+falcon_id <- millenium_falcon$inventory_id
+
+falcon_inventory <- inventory_parts %>%
+  filter(inventory_id == falcon_id) %>%
+  left_join(parts, by="part_num") %>%
+  left_join(part_categories, by="part_cat_id") %>%
+  rename("part_name"="name.x", "part_cat_name"="name.y") %>%
+  left_join(colors, by="color_id") %>%
+  mutate(origin = "origin") %>%
+  mutate(hex = paste0("#", rgb))
+  
+falcon_colors <- falcon_inventory %>%
+  group_by(inventory_id, hex) %>%
+  summarize(parts = sum(quantity))
+
+falconcolors <- falcon_colors$hex
+
+ggplot(falcon_colors, aes(x=inventory_id, y=parts))+
+  geom_col(position="fill", fill=falconcolors)+
+  theme_void()+
+  coord_flip()+
+  labs(title=" Colors of the Millenium Falcon Lego Set")
+ggsave("images/12-milleniumfalcon.png")
+```
+```{r, echo=FALSE}
+colors <- read_csv("lego_data/colors.csv") %>%
+  rename("color_id" = "id", "color_name" = "name")
+```
+
+```{r}
+hobbit_set <- sets %>%
+  filter(name == "An Unexpected Gathering") %>%
+  left_join(inventories) %>%
+  rename("inventory_id" = "id")
+
+hobbit_id <- hobbit_set$inventory_id
+
+hobbit_inventory <- inventory_parts %>%
+  filter(inventory_id == hobbit_id) %>%
+  left_join(parts, by="part_num") %>%
+  left_join(part_categories, by="part_cat_id") %>%
+  rename("part_name"="name.x", "part_cat_name"="name.y") %>%
+  left_join(colors, by="color_id") %>%
+  mutate(origin = "origin") %>%
+  mutate(hex = paste0("#", rgb))
+  
+hobbit_colors <- hobbit_inventory %>%
+  group_by(inventory_id, hex) %>%
+  summarize(parts = sum(quantity))
+
+hobbitcolors <- hobbit_colors$hex
+
+ggplot(hobbit_colors, aes(x=inventory_id, y=parts))+
+  geom_col(position="fill", fill=hobbitcolors)+
+  theme_void()+
+  coord_flip()+
+  labs(title=" Colors of the Hobbit: 'An Unexpected Gathering' Lego Set")
+ggsave("images/12-hobbit.png")
+```
+
