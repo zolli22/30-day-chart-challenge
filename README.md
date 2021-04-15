@@ -78,3 +78,29 @@ my repository for the [30 day chart challenge](https://github.com/Z3tt/30DayChar
 
 
 ## Day 12: Strips
+
+<p float="left">
+  <img src="group2-distributions/images/12-ewok.png" width="400" />
+  <img src="group2-distributions/images/12-milleniumfalcon.png" width="400" /> 
+</p>
+<img src="group2-distributions/images/12-hobbit.png" width="800" >
+
+
+# Group 3: Relationships
+
+## Day 13: Correlation
+
+<img src="group3-relationships/images/13-correlation.png" width="800" >
+
+
+## Day 14: Space
+
+<img src="group3-relationships/images/14-space.png" width="800" >
+
+## Day 15: Multivariate
+
+## Day 16: Trees
+
+## Day 17: Pop culture
+
+## Day 18: Connections
