@@ -28,5 +28,3 @@ vignettes/*.pdf
 .Renviron
 .DS_Store
 30-day-chart-challenge.Rproj
-
-*.nb.html
