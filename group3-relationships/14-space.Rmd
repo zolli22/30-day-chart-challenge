@@ -1,0 +1,41 @@
+---
+title: "Day 14: Space"
+output: html_notebook
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+```
+
+```{r libraries}
+library(tidyverse)
+library(janitor)
+library(knitr)
+library(ggdark)
+```
+
+data from [kaggle](https://www.kaggle.com/agirlcoding/all-space-missions-from-1957)
+```{r data}
+astronauts <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-14/astronauts.csv') %>%
+  distinct(number, nationwide_number, .keep_all=TRUE)
+```
+
+
+```{r}
+ggplot(astronauts, aes(y=total_eva_hrs, x=total_hrs_sum))+
+  geom_point(alpha=.3, color="#67EAFF")+
+  dark_theme_bw()+
+  
+  annotate("curve", x=19000, y=20, xend=20800, yend=37, curvature = -0.3, color = "white", arrow = arrow(length = unit(0.3, "cm")))+
+  annotate("text", label="Gennady Padalka\nRussian Cosmonaut\nMost mission hours\n21083 hours = 878.5 days", x=19000, y=14, size=3) +
+  
+  annotate("curve", x=12500, y=70, xend=15350, yend=79, curvature = -0.3, color = "white", arrow = arrow(length = unit(0.3, "cm")))+
+  annotate("text", label="Anatoly Solovyev\nRussian Cosmonaut\nMost EVA hours\n 78.80 hours = 3.28 days", x=12500, y=64, size=3)+
+  
+  labs(x="total mission hours", y="total EVA hours", title="who has spent the most time in space?")
+#+ ggsave("images/14-space.png", width=12)
+  
+  
+  
+```
+
