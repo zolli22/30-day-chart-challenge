@@ -1,0 +1,43 @@
+---
+title: "Day 15: Multivariate"
+output: html_notebook
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+```
+
+```{r}
+library(pdxTrees)
+library(tidyverse)
+library(ggbeeswarm)
+```
+
+
+```{r}
+park_trees <- get_pdxTrees_parks()
+
+trees <- count(park_trees, Common_Name) %>%
+  arrange(desc(n)) %>%
+  top_n(10) 
+mytrees <- trees$Common_Name
+
+common_trees <- park_trees %>%
+  filter(Common_Name %in% mytrees)
+
+count(common_trees, Common_Name)
+```
+
+
+```{r}
+ggplot(common_trees, aes(x=Common_Name, y=Tree_Height))+
+  coord_flip()+
+  #geom_point(aes(size=DBH), color="#B2DCAC", alpha=.3)+
+  geom_quasirandom(groupOnX = TRUE, aes(color=DBH), alpha=.3, size=1)+
+  theme_classic()
+
+
+ggplot(common_trees, aes(x=Longitude, y=Latitude, z=density))+
+  geom_contour()
+```
+
