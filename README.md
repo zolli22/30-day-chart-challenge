@@ -99,6 +99,8 @@ my repository for the [30 day chart challenge](https://github.com/Z3tt/30DayChar
 
 ## Day 15: Multivariate
 
+for day 15, i took the day off to celebrate my spring break!
+
 ## Day 16: Trees
 
 ## Day 17: Pop culture
