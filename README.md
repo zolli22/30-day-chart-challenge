@@ -17,7 +17,7 @@ my repository for the [30 day chart challenge](https://github.com/Z3tt/30DayChar
 ## Day 3: Historical  
 
 <p float="left">
-  <img src="group 1- comparisons/images/avo.png" width=400" />
+  <img src="group 1- comparisons/images/avo.png" width="400" />
   <img src="group 1- comparisons/images/bitcoin.png" width="400" /> 
 </p>
 
@@ -30,15 +30,15 @@ my repository for the [30 day chart challenge](https://github.com/Z3tt/30DayChar
 ## Day 5: Slope
 
 <p float="left">
-  <img src="group 1- comparisons/images/parabola_points.png" width=400" />
+  <img src="group 1- comparisons/images/parabola_points.png" width="400" />
   <img src="group 1- comparisons/images/wrongbutpretty.png" width="400" /> 
 </p>
 
 
-## Day 6: Slope
+## Day 6: Experimental
 
 <p float="left">
-  <img src="group 1- comparisons/images/contour_2.png" width=400" />
+  <img src="group 1- comparisons/images/contour_2.png" width="400" />
   <img src="group 1- comparisons/images/contour_3.png" width="400" /> 
 </p>
 
