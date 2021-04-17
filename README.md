@@ -99,9 +99,11 @@ my repository for the [30 day chart challenge](https://github.com/Z3tt/30DayChar
 
 ## Day 15: Multivariate
 
-for day 15, i took the day off to celebrate my spring break!
+for day 15, i took the day off to celebrate my spring break
 
 ## Day 16: Trees
+
+for day 16, i'm sharing some [interactive maps](https://rpubs.com/zolli/pdx_thpl) that i made last summer using the `pdxTrees` package and `leaflet`. enjoy!
 
 ## Day 17: Pop culture
 
