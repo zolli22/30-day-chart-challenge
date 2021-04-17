@@ -10,34 +10,71 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE)
 ```{r}
 library(pdxTrees)
 library(tidyverse)
-library(ggbeeswarm)
+library(ggraph)
+library(igraph)
+library(ellipse)
+library(RColorBrewer)
 ```
 
 
-```{r}
+```{r data}
 park_trees <- get_pdxTrees_parks()
 
-trees <- count(park_trees, Common_Name) %>%
+treecount <- count(park_trees, Family) %>%
   arrange(desc(n)) %>%
-  top_n(10) 
-mytrees <- trees$Common_Name
+  top_n(10)
 
-common_trees <- park_trees %>%
-  filter(Common_Name %in% mytrees)
+top_trees <- treecount$Family
 
-count(common_trees, Common_Name)
+my_trees <- park_trees %>%
+  filter(Family %in% top_trees) %>%
+  add_count(Family, Genus) %>%
+  filter(n > 30) %>%
+  add_count(Genus, Species) #%>%
+  #filter(nn > 30)
 ```
 
 
 ```{r}
-ggplot(common_trees, aes(x=Common_Name, y=Tree_Height))+
-  coord_flip()+
-  #geom_point(aes(size=DBH), color="#B2DCAC", alpha=.3)+
-  geom_quasirandom(groupOnX = TRUE, aes(color=DBH), alpha=.3, size=1)+
-  theme_classic()
+set1 <- my_trees %>%
+  mutate(from = "origin") %>%
+  select(from, Family) %>%
+  distinct() %>%
+  rename("to"="Family")
+  
+set2 <- my_trees %>%
+  select(Family, Genus) %>%
+  distinct() %>%
+  rename("from"="Family", "to"="Genus")
 
+set3 <- my_trees %>%
+  select(Genus, Species) %>%
+  distinct() %>%
+  rename("from"="Genus", "to"="Species")
 
-ggplot(common_trees, aes(x=Longitude, y=Latitude, z=density))+
-  geom_contour()
+hierarchy <- rbind(set1, set2, set3)
+vertices <- data.frame(name = unique(c(as.character(hierarchy$from), as.character(hierarchy$to))) ) 
+
+mygraph <- graph_from_data_frame( hierarchy, vertices=vertices )
 ```
+
+
+
+```{r}
+plot(mygraph, vertex.label="", edge.arrow.size=0, vertex.size=1)
+
+ggraph(mygraph, layout = 'dendrogram', circular = FALSE) + 
+  geom_edge_link(alpha=.5) +
+  theme_void()
+ 
+ggraph(mygraph, layout = 'dendrogram', circular = TRUE) + 
+  geom_edge_diagonal(alpha=.5) +
+  theme_void()
+
+ggraph(mygraph, 'dendrogram') + 
+  geom_edge_diagonal(alpha=.5, strength=1) +
+  theme_void()
+```
+
+
 
