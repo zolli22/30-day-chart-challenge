@@ -1,0 +1,66 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+```
+
+```{r libraries}
+library(tidyverse)
+library(circlize)
+```
+
+```{r}
+got <- read_csv("battles.csv")
+```
+
+```{r}
+attackers <- got %>%
+  select(3, 6:9) %>%
+  pivot_longer(cols=c(attacker_1, attacker_2, attacker_3, attacker_4), 
+               names_to="val", values_to="attacker") %>%
+  filter(!is.na(attacker)) %>%
+  select(1, 3)
+
+defenders <- got %>%
+  select(3, 10:13) %>%
+  pivot_longer(cols=c(defender_1, defender_2, defender_3, defender_4), 
+               names_to="val", values_to="defender") %>%
+  filter(!is.na(defender)) %>%
+  select(1, 3)
+
+battles <- attackers %>%
+  full_join(defenders, by="battle_number") %>%
+  select(2:3) %>%
+  count(attacker, defender) %>%
+  rename("from"="attacker", "to"="defender", "value"="n") %>%
+  filter(!is.na(to)) 
+  
+
+merged <- battles %>%
+  pivot_longer(cols=c(from, to), names_to="position", values_to="house", names_repair = "unique") %>%
+  count(house) %>%
+  arrange(desc(n)) %>%
+  filter(n > 2)
+
+top_houses <- merged$house
+
+final_houses <- battles %>%
+  filter(from %in% top_houses, to %in% top_houses)
+```
+
+
+```{r, dpi=400}
+chordDiagram(final_houses)
+
+circos.clear()
+```
+
+```{r}
+scales::show_col(tvthemes::st)
+
+tvthemes::westeros_pal(palette = "Stark", 5)
+```
+
