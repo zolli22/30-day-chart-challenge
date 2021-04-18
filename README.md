@@ -70,7 +70,8 @@ my repository for the [30 day chart challenge](https://github.com/Z3tt/30DayChar
 <p float="left">
   <img src="group2-distributions/img/handpicked/2021-04-11-14-31_seed_9328.png" width="400" />
   <img src="group2-distributions/img/handpicked/2021-04-11-13-42_seed_6133.png" width="400" /> 
-</p>                                                                 
+</p>  
+
 
 ## Day 11: Circular
 
@@ -86,6 +87,7 @@ my repository for the [30 day chart challenge](https://github.com/Z3tt/30DayChar
 <img src="group2-distributions/images/12-hobbit.png" width="800" >
 
 
+
 # Group 3: Relationships
 
 ## Day 13: Correlation
@@ -97,14 +99,49 @@ my repository for the [30 day chart challenge](https://github.com/Z3tt/30DayChar
 
 <img src="group3-relationships/images/14-space.png" width="800" >
 
+
 ## Day 15: Multivariate
 
 for day 15, i took the day off to celebrate my spring break
+
 
 ## Day 16: Trees
 
 for day 16, i'm sharing some [interactive maps](https://rpubs.com/zolli/pdx_thpl) that i made last summer using the `pdxTrees` package and `leaflet`. enjoy!
 
-## Day 17: Pop culture
 
-## Day 18: Connections
+## Day 17: Pop culture and Day 18: Connections
+
+<img src="group3-relationships/images/17-18-gameofthrones.png" width="800" >
+
+
+
+# Group 4: Timeseries
+
+## Day 19: Global Change
+
+## Day 20: Upwards
+
+## Day 21: Downwards
+
+## Day 22: Animation
+
+## Day 23: Tiles
+
+## Day 24: Monochrome
+
+
+
+# Group 5: Uncertainties 
+
+## Day 25: Demographic
+
+## Day 26: Trends
+
+## Day 27: Educational
+
+## Day 28: Future
+
+## Day 29: Deviations
+
+## Day 30: 3D
