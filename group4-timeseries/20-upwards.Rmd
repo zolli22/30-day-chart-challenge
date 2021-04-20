@@ -1,0 +1,45 @@
+---
+title: "Day 20: Upwards"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(lubridate)
+library(ggdark)
+library(showtext)
+```
+
+```{r}
+co2 <- read_csv("monthly_in_situ_co2_mlo.csv") 
+
+co2_cleaned <- co2 %>%
+  unite(date, Mn:Yr, sep="-") %>%
+  mutate(date = lubridate::my(date)) %>%
+  filter(CO2 > 0)
+```
+
+```{r}
+font_add_google("Spartan", "spartan")
+showtext_auto(enable=TRUE)
+```
+
+```{r}
+label_x1 <- ymd("1974-03-01")
+label_x2 <- ymd("1975-05-01")
+
+ggplot(co2_cleaned, aes(x=date, y=fit))+
+  geom_line()+
+  dark_theme_classic()+
+  labs(y="CO2 (ppm)")+
+  guides(color="none")+
+  theme(text=element_text(family="spartan"))+
+  annotate(geom="text", x=label_x1, y=390, label="the keeling curve", size=9, family="spartan")+
+  annotate(geom="text", x=label_x2, y=375, 
+           label="daily record of atmospheric carbon dioxide concentrations\nfrom 1958 to present day", 
+           size=3, family="spartan")
+
+ggsave("images/20-upwards.png", width=10)
+
+```
+

@@ -120,7 +120,13 @@ for day 16, i'm sharing some [interactive maps](https://rpubs.com/zolli/pdx_thpl
 
 ## Day 19: Global Change
 
+<img src="group4-timeseries/images/19-globalchange.png" width="800" >
+
+
 ## Day 20: Upwards
+
+<img src="group4-timeseries/images/20-upwards.png" width="800" >
+
 
 ## Day 21: Downwards
 

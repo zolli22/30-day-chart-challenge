@@ -1,0 +1,49 @@
+---
+title: "Day 19: Global Change"
+output: html_notebook
+---
+
+```{r libraries}
+library(tidyverse)
+library(paletteer)
+library(scales)
+library(showtext)
+```
+
+
+```{r}
+soybean_use <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-04-06/soybean_use.csv')
+```
+
+```{r}
+font_add_google("Lora", "lora")
+showtext_auto(enable=TRUE)
+```
+
+```{r}
+gt::info_paletteer(color_pkgs = NULL)
+```
+
+
+```{r}
+continents <- c("Northern America", "South America", "Europe", "Asia", "Africa", "Oceania")
+```
+
+
+```{r}
+soybean_use2 <- soybean_use %>%
+  filter(entity %in% continents)
+
+ggplot(soybean_use2, aes(x=year, y=processed, color=entity))+
+  #geom_line()+
+  geom_step()+
+  theme_minimal()+
+  scale_color_paletteer_d("LaCroixColoR::Pamplemousse")+
+  labs(y="processed soybean use", title="processed soybean usage, 1961 to 2013", 
+       subtitle="processed uses include vegetable oil, biofuel, and processed animal feed", color="continent", 
+       caption="data from tidytuesday week 15, 2021")+
+  theme(text=element_text(family="lora"))
+
+ggsave("images/19-globalchange.png", width=10)
+```
+
