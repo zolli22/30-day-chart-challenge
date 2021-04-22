@@ -1,0 +1,52 @@
+---
+title: "Day 21: Downwards"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(genius)
+library(showtext)
+library(viridis)
+```
+```{r}
+font_add_google("Raleway", "rale")
+showtext_auto(enable=TRUE)
+```
+
+```{r}
+countdown <- genius_lyrics(artist = "Beyonce", song = "Countdown")
+
+count_down <- countdown %>%
+  filter(line %in% c(7:16)) %>%
+  select(!track_title) %>% 
+  mutate(line = line-6, line = factor(line), number = word(lyric, -1), num = c(10:1), 
+         lyric = fct_rev(fct_inorder(lyric)))
+
+levels(count_down$lyric)
+```
+
+
+```{r}
+ggplot(count_down, aes(x=line, y=lyric))+
+  geom_segment(x=1, xend=10, y=10, yend=1)+
+  geom_point(aes(size=num, fill=num), shape=21)+
+  
+  coord_cartesian(xlim=c(1, 11)) +
+  #scale_fill_viridis(option="inferno")+
+  scale_fill_gradient2(low="maroon1", mid="pink", high="gold", midpoint=5)+ # mid="plum1", midpoint=5
+  
+  labs(title="Beyonce: Counting Down through 'Countdown'", x="chorus progression", 
+       fill="pitch of note\n(high to low)")+
+  geom_text(aes(label=number), nudge_x = .8, nudge_y = .1, family="rale")+
+  
+  guides(size="none", x="none", fill=guide_colorbar(label.position = "left", label = FALSE, 
+                                                    title.position = "top", ticks = FALSE))+
+  theme_classic()+
+  theme(text=element_text(family="rale"))
+
+ggsave("images/21-downwards.png", dpi=320, height=5, width=8)
+
+
+```
+

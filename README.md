@@ -130,6 +130,9 @@ for day 16, i'm sharing some [interactive maps](https://rpubs.com/zolli/pdx_thpl
 
 ## Day 21: Downwards
 
+<img src="group4-timeseries/images/21-downwards.png" width="800" >
+
+
 ## Day 22: Animation
 
 ## Day 23: Tiles
