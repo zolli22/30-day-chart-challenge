@@ -1,0 +1,104 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(geojsonio)
+library(RColorBrewer)
+library(rgdal)
+library(gganimate)
+```
+
+```{r}
+post_offices <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-04-13/post_offices.csv')
+state_codes <- read_csv("state_codes.csv") %>%
+  rename("state"="Code", "id"="State")
+```
+
+
+```{r}
+
+# Download the Hexagones boundaries at geojson format here: https://team.carto.com/u/andrew/tables/andrew.us_states_hexgrid/public/map.
+
+# Load this file. (Note: I stored in a folder called DATA)
+spdf <- geojson_read("us_states_hexgrid.geojson",  what = "sp")
+
+# Bit of reformating
+spdf@data = spdf@data %>%
+  mutate(google_name = gsub(" \\(United States\\)", "", google_name))
+
+```
+
+
+```{r}
+# I need to 'fortify' the data to be able to show it with ggplot2 (we need a data frame format)
+library(broom)
+spdf@data = spdf@data %>% mutate(google_name = gsub(" \\(United States\\)", "", google_name))
+spdf_fortified <- tidy(spdf, region = "google_name") %>%
+  left_join(state_codes)
+
+# Calculate the centroid of each hexagon to add the label:
+library(rgeos)
+centers <- cbind.data.frame(data.frame(gCentroid(spdf, byid=TRUE), id=spdf@data$iso3166_2))
+ 
+```
+
+```{r}
+
+my_post_offices <- post_offices %>%
+  select(name, state, established, discontinued) %>%
+  mutate(established = as.character(established), 
+         established = str_pad(established, width=4, side="right", pad="0"),
+         established = as.numeric(established)) %>% 
+  mutate(discontinued = as.character(discontinued), 
+         discontinued = str_pad(discontinued, width=4, side="left", pad="1"),
+         discontinued = str_trunc(discontinued, width=4, side="right"),
+         discontinued = as.numeric(discontinued)) %>%
+    filter(established >= 1639,
+         is.na(discontinued) | discontinued >= established, 
+         discontinued < 2020)
+
+
+post_office_years <- my_post_offices %>%
+  select(name, state, established, discontinued) %>%
+  replace_na(list(discontinued = 2003)) %>%
+  mutate(year = map2(established, discontinued, seq)) %>%
+  unnest(year)
+  
+grouped_post_office_year <- post_office_years %>%
+  group_by(state) %>%
+  count(year) %>%
+  filter(state %in% state_codes$state)
+
+```
+
+```{r}
+# Merge geospatial and numerical information
+spdf_fortified_joined <- spdf_fortified %>%
+  full_join(. , grouped_post_office_year, by="state") 
+
+
+ 
+# Make a first chloropleth map
+p <- ggplot() +
+  geom_polygon(data = spdf_fortified, aes( x = long, y = lat, group = group), fill="white", color="black")+
+  geom_polygon(data = spdf_fortified_joined, aes(fill =  n, x = long, y = lat, group = group)) +
+  scale_fill_gradient(trans = "log") +
+  theme_void() +
+  coord_map() +
+  geom_text(data=centers, aes(x=x, y=y, label=id)) +
+  scale_fill_viridis(option="plasma", direction = -1)+
+  labs(fill="count")
+  
+
+p_anim <- p +
+  transition_manual(year) +
+  labs(title = "post offices in { current_frame }")
+
+p_anim
+
+anim_save(filename = "images/tile_animation.gif", 
+          animation = last_animation()) 
+```
