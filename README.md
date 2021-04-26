@@ -133,11 +133,10 @@ for day 16, i'm sharing some [interactive maps](https://rpubs.com/zolli/pdx_thpl
 <img src="group4-timeseries/images/21-downwards.png" width="800" >
 
 
-## Day 22: Animation
+## Day 22: Animation and Day 23: Tiles
 
 <img src="group4-timeseries/images/tile_animation.gif" width="800" >
 
-## Day 23: Tiles
 
 ## Day 24: Monochrome
 
